@@ -22,6 +22,10 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0xffffff, 1); // Set the clear color to white
 document.body.appendChild(renderer.domElement);
 
+const directionalLight = new THREE.DirectionalLight(0xffffff, 2); // Bright white light
+directionalLight.position.set(5, 5, 5); // Position of the light
+scene.add(directionalLight);
+
 // Load a GLTF model
 const loader = new GLTFLoader();
 const modelPath = '/assets/models/Typical_LiftLobby.glb'; // Path to the model
@@ -52,9 +56,6 @@ camera.position.y = 500;
 // Animation loop
 function animate() {
   requestAnimationFrame(animate);
-
-  // Update controls (required for damping)
-  controls.update();
 
   // Render the scene
   renderer.render(scene, camera);
