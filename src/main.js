@@ -59,14 +59,11 @@ scene.add(hemisphereLight);
 
 let ceiling;
 export { ceiling };
-import { modelname } from './modelprovider.js';
-
-console.log(modelname);
 
 const loader = new GLTFLoader();
 let model;
 loader.load(
-    modelname,
+    'src/assets/models/Typical_LiftLobby.glb',
     (gltf) => {
         model = gltf.scene;
         model.position.set(0, 0.2, 0);
@@ -110,18 +107,6 @@ controls.target.set(0, 5, 0);
 const moveSpeed = 0.25;
 let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
 let isMoving = false; 
-
-//modelbox
-const boxGeometry = new THREE.BoxGeometry(13, 3, 15.5);
-const boxMaterial = new THREE.MeshStandardMaterial({
-    color: 0xffffff,
-    wireframe: true,
-    transparent: true,
-    opacity: 0
-});
-const box = new THREE.Mesh(boxGeometry, boxMaterial);
-box.position.set(0.35, 1.5, 0.2);
-scene.add(box);
 
 // Event listeners for hover effect
 renderer.domElement.addEventListener('pointerdown', () => {
