@@ -56,10 +56,6 @@ spotLight.distance = 100;
 spotLight.castShadow = true;
 scene.add(spotLight);
 
-// Hemisphere Light
-const hemisphereLight = new THREE.HemisphereLight(0xddeeff, 0x0f0e0d, 0.3);  // Reduced intensity
-scene.add(hemisphereLight);
-
 const directionalLight = new THREE.DirectionalLight(0xffffff, 2); // Bright white light
 directionalLight.position.set(5, 5, 5); // Position of the light
 scene.add(directionalLight);
