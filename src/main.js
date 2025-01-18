@@ -59,67 +59,30 @@ scene.add(spotLight);
 const hemisphereLight = new THREE.HemisphereLight(0xddeeff, 0x0f0e0d, 0.3);  // Reduced intensity
 scene.add(hemisphereLight);
 
-let ceiling;
-export { ceiling };
+
+// Load a GLTF model
 const loader = new GLTFLoader();
-let model;
+const modelPath = '/assets/models/Typical_LiftLobby.glb'; // Path to the model
+
 loader.load(
-    'src/assets/models/Typical_LiftLobby.glb',
-    (gltf) => {
-        model = gltf.scene;
-        model.position.set(0, 0.2, 0);
-        scene.add(model);
+  modelPath, // Path to the GLTF model
+  (gltf) => {
+    // On model load, add it to the scene
+    gltf.scene.scale.set(20, 20, 20); // Adjust the scale if needed
+    scene.add(gltf.scene);
+    gltf.scene.position.set(0, 0, 0); // Set the position of the model if needed
 
-        ceiling = model.getObjectByName("Cube634");
-        if (ceiling) {
-            ceiling.visible = true; 
-        } else {
-            console.warn("Ceiling not found in the model.");
-        }
-
-        model.traverse((child) => {
-            console.log(`Name: ${child.name}, Type: ${child.type}`);
-        });
-
-        const box = new THREE.Box3().setFromObject(model);
-
-        const size = box.getSize(new THREE.Vector3());
-        const center = box.getCenter(new THREE.Vector3());
-
-        const boundingBoxGeometry = new THREE.BoxGeometry(size.x, size.y, size.z); // Scale the height
-        const boundingBoxMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true, visible: false });
-        const boundingBoxMesh = new THREE.Mesh(boundingBoxGeometry, boundingBoxMaterial);
-
-        boundingBoxMesh.position.copy(center);
-
-        scene.add(boundingBoxMesh);
-    },
-    undefined,
-    (error) => {
-        console.error('An error occurred while loading the model:', error);
-    }
+    console.log("Model loaded successfully");
+  },
+  (xhr) => {
+    // onProgress callback (optional)
+    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+  },
+  (error) => {
+    // Error handling
+    console.error('Error loading model:', error);
+  }
 );
-
-
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.target.set(0, 5, 0);
-
-const moveSpeed = 0.25;
-let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
-let isMoving = false; 
-
-//modelbox
-const boxGeometry = new THREE.BoxGeometry(13, 3, 15.5);
-const boxMaterial = new THREE.MeshStandardMaterial({
-    color: 0xffffff,
-    wireframe: true,
-    transparent: true,
-    opacity: 0
-});
-const box = new THREE.Mesh(boxGeometry, boxMaterial);
-box.position.set(0.35, 1.5, 0.2);
-scene.add(box);
 
 // Position the camera
 camera.position.y = 10;
