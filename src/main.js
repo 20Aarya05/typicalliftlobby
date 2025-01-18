@@ -136,10 +136,11 @@ const loader = new GLTFLoader();
 const modelPath = '/assets/models/Typical_LiftLobby.glb'; // Path to the model
 
 loader.load(
-  console.log("Loading model...");
   
   modelPath, // Path to the GLTF model
   (gltf) => {
+    
+    console.log("Loading model...");
     // On model load, add it to the scene
     gltf.scene.scale.set(20, 20, 20); // Adjust the scale if needed
     scene.add(gltf.scene);
