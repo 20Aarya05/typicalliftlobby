@@ -28,9 +28,6 @@ function onWindowResize() {
 
 window.addEventListener('resize', onWindowResize);
 
-/// Lighting
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);  // Reduced intensity
-scene.add(ambientLight);
 
 // Load a GLTF model
 const loader = new GLTFLoader();
