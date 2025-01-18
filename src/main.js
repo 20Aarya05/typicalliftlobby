@@ -13,7 +13,7 @@ const camera = new THREE.PerspectiveCamera(
   75, // Field of view
   window.innerWidth / window.innerHeight, // Aspect ratio
   0.1, // Near clipping plane
-  1000 // Far clipping plane
+  2000 // Far clipping plane
 );
 
 // Create the renderer
@@ -40,13 +40,13 @@ scene.add(directionalLight);
 
 // Load a GLTF model
 const loader = new GLTFLoader();
-const modelPath = '/assets/models/gltf/Typical_LiftLobby.glb'; // Path to the model
+const modelPath = '/assets/models/Typical_LiftLobby.glb'; // Path to the model
 
 loader.load(
   modelPath, // Path to the GLTF model
   (gltf) => {
     // On model load, add it to the scene
-    gltf.scene.scale.set(1, 1, 1); // Adjust the scale if needed
+    gltf.scene.scale.set(20, 20, 20); // Adjust the scale if needed
     scene.add(gltf.scene);
     gltf.scene.position.set(0, 0, 0); // Set the position of the model if needed
 
