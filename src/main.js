@@ -46,20 +46,6 @@ directionalLight.shadow.camera.top = 20;
 directionalLight.shadow.camera.bottom = -20;
 scene.add(directionalLight);
 
-// Spotlight
-const spotLight = new THREE.SpotLight(0xffa95c, 1);  // Reduced intensity
-spotLight.position.set(-15, 30, 15);
-spotLight.angle = Math.PI / 4;
-spotLight.penumbra = 0.2;
-spotLight.decay = 2;
-spotLight.distance = 100;
-spotLight.castShadow = true;
-scene.add(spotLight);
-
-// Hemisphere Light
-const hemisphereLight = new THREE.HemisphereLight(0xddeeff, 0x0f0e0d, 0.3);  // Reduced intensity
-scene.add(hemisphereLight);
-
 
 // Load a GLTF model
 const loader = new GLTFLoader();
