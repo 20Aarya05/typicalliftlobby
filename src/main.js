@@ -22,22 +22,6 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0xffffff, 1); // Set the clear color to white
 document.body.appendChild(renderer.domElement);
 
-// Add OrbitControls
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.dampingFactor = 0.05;
-controls.enableZoom = true;
-controls.enablePan = true;
-controls.update();
-
-// Add lights to the scene
-const ambientLight = new THREE.AmbientLight(0x404040, 2); // Soft white light
-scene.add(ambientLight);
-
-const directionalLight = new THREE.DirectionalLight(0xffffff, 2); // Bright white light
-directionalLight.position.set(5, 5, 5); // Position of the light
-scene.add(directionalLight);
-
 // Load a GLTF model
 const loader = new GLTFLoader();
 const modelPath = '/assets/models/Typical_LiftLobby.glb'; // Path to the model
