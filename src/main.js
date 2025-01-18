@@ -25,6 +25,8 @@ function onWindowResize() {
     renderer.render(scene, camera); 
 }
 
+window.addEventListener('resize', onWindowResize);
+
 const directionalLight = new THREE.DirectionalLight(0xffffff, 2); // Bright white light
 directionalLight.position.set(5, 5, 5); // Position of the light
 scene.add(directionalLight);
