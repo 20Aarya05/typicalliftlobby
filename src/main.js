@@ -40,41 +40,15 @@ scene.add(directionalLight);
 
 // Load a GLTF model
 const loader = new GLTFLoader();
-const modelPath = "src/assets/models/Typical_LiftLobby.glb"; // Using the model name from the previous code
+const modelPath = '/assets/models/Typical_LiftLobby.glb'; // Path to the model
 
 loader.load(
   modelPath, // Path to the GLTF model
   (gltf) => {
     // On model load, add it to the scene
-    const model = gltf.scene;
-    model.position.set(0, 0.2, 0); // Set the model position
-
-    scene.add(model);
-
-    // Handle the ceiling object, if found
-    const ceiling = model.getObjectByName("Cube634");
-    if (ceiling) {
-      ceiling.visible = true;
-    } else {
-      console.warn("Ceiling not found in the model.");
-    }
-
-    // Log child objects' names and types
-    model.traverse((child) => {
-      console.log(`Name: ${child.name}, Type: ${child.type}`);
-    });
-
-    // Add a bounding box for the model
-    const box = new THREE.Box3().setFromObject(model);
-    const size = box.getSize(new THREE.Vector3());
-    const center = box.getCenter(new THREE.Vector3());
-
-    const boundingBoxGeometry = new THREE.BoxGeometry(size.x, size.y, size.z); // Scale the height
-    const boundingBoxMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true, visible: false });
-    const boundingBoxMesh = new THREE.Mesh(boundingBoxGeometry, boundingBoxMaterial);
-
-    boundingBoxMesh.position.copy(center);
-    scene.add(boundingBoxMesh);
+    gltf.scene.scale.set(20, 20, 20); // Adjust the scale if needed
+    scene.add(gltf.scene);
+    gltf.scene.position.set(0, 0, 0); // Set the position of the model if needed
 
     console.log("Model loaded successfully");
   },
@@ -87,7 +61,6 @@ loader.load(
     console.error('Error loading model:', error);
   }
 );
-
 
 // Position the camera
 camera.position.y = 500;
