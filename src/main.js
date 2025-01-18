@@ -40,7 +40,7 @@ scene.add(directionalLight);
 
 // Load a GLTF model
 const loader = new GLTFLoader();
-const modelPath = '/assets/models/gltf/Typical_LiftLobby.glb'; // Path to the model
+const modelPath = '/assets/models/Typical_LiftLobby.glb'; // Path to the model
 
 loader.load(
   modelPath, // Path to the GLTF model
