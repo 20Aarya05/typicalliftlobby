@@ -1,0 +1,1 @@
+console.log(`minimap.js loaded`);
