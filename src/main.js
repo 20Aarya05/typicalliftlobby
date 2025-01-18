@@ -46,7 +46,7 @@ loader.load(
   modelPath, // Path to the GLTF model
   (gltf) => {
     // On model load, add it to the scene
-    gltf.scene.scale.set(60, 60, 60); // Adjust the scale if needed
+    gltf.scene.scale.set(1, 1, 1); // Adjust the scale if needed
     scene.add(gltf.scene);
     gltf.scene.position.set(0, 0, 0); // Set the position of the model if needed
 
