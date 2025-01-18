@@ -2,35 +2,9 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { lastClickedButton } from './caller.js';
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 
 export const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xd6d6d6);
-
-// Create a loader for the HDR texture
-const rgbeLoader = new RGBELoader();
-
-// Load the HDR texture (replace with the path to your HDR file)
-rgbeLoader.load(
-    'src/assets/HDR/kloofendal_48d_partly_cloudy_puresky_4k.hdr',  // Path to the HDR file
-    (hdrEquirect) => {
-        // The HDR image is loaded successfully
-
-        // Set the scene background to the HDR texture
-        hdrEquirect.mapping = THREE.EquirectangularReflectionMapping;
-        scene.background = hdrEquirect;
-
-        // Set the environment map for the scene (use HDR for reflections)
-        scene.environment = hdrEquirect;
-
-        // You can adjust the intensity of the HDR light
-        hdrEquirect.intensity = 1.0; // Default intensity
-    },
-    undefined,
-    (error) => {
-        console.error('An error occurred while loading the HDR texture:', error);
-    }
-)
 
 export const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.set(0, 15, 30);
