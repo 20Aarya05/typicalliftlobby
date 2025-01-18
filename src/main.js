@@ -9,18 +9,21 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff); // White background
 
 // Create the camera
-const camera = new THREE.PerspectiveCamera(
-  75, // Field of view
-  window.innerWidth / window.innerHeight, // Aspect ratio
-  0.1, // Near clipping plane
-  1000 // Far clipping plane
-);
+export const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.set(0, 15, 30);
 
-// Create the renderer
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0xffffff, 1); // Set the clear color to white
-document.body.appendChild(renderer.domElement);
+renderer.setPixelRatio(window.devicePixelRatio > 1 ? 1.5 : 1); 
+const canvasContainer = document.getElementById('canvas-container');
+canvasContainer.appendChild(renderer.domElement);
+
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.render(scene, camera); 
+}
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 2); // Bright white light
 directionalLight.position.set(5, 5, 5); // Position of the light
