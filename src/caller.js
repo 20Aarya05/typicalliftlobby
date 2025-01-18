@@ -1,6 +1,7 @@
-import { camera, moveCameraTo, animate, changeObjectTexturemain, ceiling } from './main.js';
+import { camera, moveCameraTo, animate, changeObjectTexturemain, } from './main.js';
 import { changeObjectTextureminimap } from './minimap.js';
 
+let ceiling="Cube634";
 let lastClickedButton = "overview";
 export { lastClickedButton };
 let ismoving = false;
