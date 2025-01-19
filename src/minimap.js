@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { camera } from './main1.js';
+import { camera } from './main.js';
 import { modelname } from './modelprovider.js';
 
 const minimapScene = new THREE.Scene();
