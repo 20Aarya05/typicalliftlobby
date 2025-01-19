@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 import { lastClickedButton } from './caller.js';
 
 export const scene = new THREE.Scene();
@@ -14,6 +15,20 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio > 1 ? 1.5 : 1); 
 const canvasContainer = document.getElementById('canvas-container');
 canvasContainer.appendChild(renderer.domElement);
+
+const rgbeLoader = new RGBELoader();
+rgbeLoader.load(
+  './assets/HDR/kloofendal_48d_partly_cloudy_puresky_4k.hdr', // Path to your HDR file
+  (texture) => {
+    texture.mapping = THREE.EquirectangularReflectionMapping; // Set equirectangular mapping
+    scene.background = texture; // Set as scene background
+    scene.environment = texture; // Use as environment for lighting
+  },
+  undefined, // Optional onProgress callback
+  (error) => {
+    console.error('Error loading HDR:', error);
+  }
+);
 
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
