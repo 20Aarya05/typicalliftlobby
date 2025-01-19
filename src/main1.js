@@ -112,7 +112,7 @@ export { ceiling };
 const loader = new GLTFLoader();
 let model;
 loader.load(
-    'src/assets/models/Typical_LiftLobby.glb',
+    './assets/models/Typical_LiftLobby.glb',
     (gltf) => {
         model = gltf.scene;
         model.position.set(0, 0.2, 0);

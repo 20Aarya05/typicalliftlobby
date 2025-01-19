@@ -47,7 +47,7 @@ const minimapLoader = new GLTFLoader();
 let model;
 
 minimapLoader.load(
-    modelname, 
+    './assets/models/Typical_LiftLobby.glb', 
     (gltf) => {
         model = gltf.scene;
         model.position.set(0, 0, 0);
