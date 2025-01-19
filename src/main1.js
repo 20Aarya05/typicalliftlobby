@@ -61,10 +61,10 @@ scene.add(hemisphereLight);
 const textureLoader = new THREE.TextureLoader();
 
 // Load the individual textures (replace with actual file paths)
-const diffuseTexture = textureLoader.load('src/assets/textures/ground_textures/rocky_terrain_02_diff_2k.jpg');
-const normalTexture = textureLoader.load('src/assets/textures/ground_textures/rocky_terrain_02_nor_gl_2k.jpg');
-const specularTexture = textureLoader.load('src/assets/textures/ground_textures/rocky_terrain_02_spec_2k.jpg');
-const aoTexture = textureLoader.load('src/assets/textures/ground_textures/rocky_terrain_02_arm_2k.jpg');  // Ambient Occlusion map
+const diffuseTexture = textureLoader.load('./assets/textures/ground_textures/rocky_terrain_02_diff_2k.jpg');
+const normalTexture = textureLoader.load('./assets/textures/ground_textures/rocky_terrain_02_nor_gl_2k.jpg');
+const specularTexture = textureLoader.load('./assets/textures/ground_textures/rocky_terrain_02_spec_2k.jpg');
+const aoTexture = textureLoader.load('./assets/textures/ground_textures/rocky_terrain_02_arm_2k.jpg');  // Ambient Occlusion map
 
 // Ground Plane with Textures
 const planeGeometry = new THREE.PlaneGeometry(100, 100);
