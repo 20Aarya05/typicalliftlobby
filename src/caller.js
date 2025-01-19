@@ -1,4 +1,4 @@
-import { camera, moveCameraTo, animate, changeObjectTexturemain, } from './main.js';
+import { camera, moveCameraTo, animate, changeObjectTexturemain, } from './main1.js';
 import { changeObjectTextureminimap } from 'src/minimap.js';
 
 let ceiling="Cube634";
