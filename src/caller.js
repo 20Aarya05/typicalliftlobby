@@ -1,4 +1,4 @@
-import { camera, cieling, moveCameraTo, animate, changeObjectTexturemain, } from './main1.js';
+import { camera, ceiling, moveCameraTo, animate, changeObjectTexturemain, } from './main1.js';
 import { changeObjectTextureminimap } from './minimap.js';
 
 let lastClickedButton = "overview";
