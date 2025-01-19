@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { camera } from './main.js';
-import { modelname } from './modelprovider.js';
+import { camera } from 'src/main.js';
+import { modelname } from 'src/modelprovider.js';
 
 const minimapScene = new THREE.Scene();
 minimapScene.background = new THREE.Color(0xd6d6d6);
