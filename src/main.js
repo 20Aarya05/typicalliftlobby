@@ -18,7 +18,7 @@ canvasContainer.appendChild(renderer.domElement);
 
 const rgbeLoader = new RGBELoader();
 rgbeLoader.load(
-  './assets/HDR/kloofendal_48d_partly_cloudy_puresky_4k.hdr', // Path to your HDR file
+  './assets/HDR/kloppenheim_06_puresky_4k.hdr', // Path to your HDR file
   (texture) => {
     texture.mapping = THREE.EquirectangularReflectionMapping; // Set equirectangular mapping
     scene.background = texture; // Set as scene background
